@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    background-color: #424242;
+    border-bottom: 1px solid #00B0FF;
+    height: 84px;   
+}
+
+.logo {
+    margin: 1rem 1rem 2rem 1rem;
+    font-size: 50px;
+    color: #00B0FF;
+}
+
+.titulo-logo {
+    color: white;
+    font: bolder;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 1.3rem;
+}
+
+.subtitulo-logo {
+    margin-top: -7px;
+}
+
+.git-link {
+    font: bolder;
+    font-size: 14px;
+    font-weight: 500;
+    color: grey;
+    text-decoration: none;
+}
+
+.git-link:hover {
+    color: darkgray;
+}
