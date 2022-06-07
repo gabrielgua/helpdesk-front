@@ -1,16 +1,19 @@
 .container {
     height: 100%;
+    background-color: #28313B;
 }
 
 .sidenav {
     width: 13rem;
     color: white;
-    background-color: #303030;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #28313b 0%, #485461 74%);
+    border: none;
 }
 
 .logo {
     margin: 1rem 2rem 1rem 1rem;
-    font-size: larger;
+    font-size: x-large;
     text-align: center;
 
 }
@@ -26,4 +29,6 @@
 .menu-btn {
     margin: 1rem 0 0 1rem;
     color: white;
+    background-color: #485461;
+    background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
 }
