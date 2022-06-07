@@ -1,7 +1,8 @@
 <mat-drawer-container class="container" autosize>
     <mat-drawer #drawer class="sidenav" mode="side">
         
-        <p class="logo">HelpDesk</p>
+        <i class="material-icons logo">laptop</i>
+        <mat-divider></mat-divider>
         <mat-nav-list class="nav-list">
             <a mat-list-item routerLink="/">
                 <i class="material-icons">home</i>
@@ -27,9 +28,10 @@
     </mat-drawer>
   
     <div class="sidenav-content">
-        <button class="menu-btn mat-elevation-z8" (click)="drawer.toggle()" mat-icon-button>
+        <button mat-mini-fab color="primary" class="menu-btn mat-elevation-z8" (click)="drawer.toggle()">
             <mat-icon>menu</mat-icon>
         </button>
+        <router-outlet></router-outlet>
     </div>
   
   </mat-drawer-container>
