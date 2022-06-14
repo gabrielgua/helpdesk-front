@@ -50,7 +50,7 @@
               "src/assets"
             ],
             "styles": [
-              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/mytheme.scss",
               "src/styles.css"
             ],
             "scripts": []
