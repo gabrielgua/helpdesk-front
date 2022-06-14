@@ -5,7 +5,7 @@
 .sidenav {
     width: 13rem;
     color: white;
-    border-right: 1px solid #00B0FF;
+    border-right: 1px solid #C2185B;
     background-color: #303030;
 }
 
@@ -15,11 +15,11 @@
 
 .sidenav i {
     margin-right: .7rem;
-    color: #00B0FF;
+    color: #C2185B;
 }
 
 .menu-btn {
     margin: 1rem 0 0 1rem;
     color: white;
-    background-color: #00B0FF;
+    background-color: #C2185B;
 }
