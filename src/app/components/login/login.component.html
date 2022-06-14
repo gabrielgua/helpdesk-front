@@ -8,14 +8,14 @@
 
         <mat-form-field class="input" appearance="fill">
             <mat-label>E-mail</mat-label>
-            <input matInput placeholder="Ex. email@mail.com">
+            <input [formControl]="email" [(ngModel)]="creds.email" name="email" matInput placeholder="Ex. email@mail.com" required>
         </mat-form-field>
     
         <mat-form-field class="input" appearance="fill">
             <mat-label>Senha</mat-label>
-            <input matInput type="password" placeholder="Digite sua senha">
+            <input [formControl]="senha" [(ngModel)]="creds.senha" name="senha" matInput type="password" placeholder="Digite sua senha" required>
         </mat-form-field>
 
-        <button mat-raised-button color="primary">Login</button>
+        <button [disabled]="!validaCampos()" mat-raised-button color="primary">Login</button>
     </form>
 </div>
