@@ -1,9 +1,17 @@
-.card {
+.container {
     width: 90%;
-    margin: 1rem auto;
+    margin: auto;
+}
+
+.card {
+    width: 100%;
     background-color: #424242;
 }
 
 img {
     height: 20rem;
+}
+
+mat-divider {
+    margin-bottom: 1rem;
 }
