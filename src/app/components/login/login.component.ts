@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['']);
     }, () => {
       this.toast.error('Usuário e/ou Senha inválidos!', 'Login');
+      this.creds.senha = '';
     })
   }
 
