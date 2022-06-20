@@ -22,7 +22,6 @@ export class TecnicoListComponent implements OnInit {
   constructor(private service: TecnicoService) { }
 
   ngOnInit(): void {
-    this.dataSource.sort = this.sort;
     this.buscarTodos();
   }
 
@@ -31,7 +30,6 @@ export class TecnicoListComponent implements OnInit {
       this.ELEMENT_DATA = resp;
       this.dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
-      this.dataSource.sort = this.sort;
     });
   }
 
