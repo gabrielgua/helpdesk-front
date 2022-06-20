@@ -1,1 +1,42 @@
-<p>tecnico-create works!</p>
+<div class="container">
+    <h1>Cadastrar novo Técnico</h1>
+    <mat-divider></mat-divider>
+    <div class="container-form mat-elevation-z8">
+        <form class="form">
+    
+            <section class="section">
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>Nome</mat-label>
+                    <input matInput placeholder="Digite o nome">
+                    <mat-icon color="primary" matSuffix>person</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>CPF</mat-label>
+                    <input matInput placeholder="Digite o CPF">
+                    <mat-icon color="primary" matSuffix>pin</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="Digite o email">
+                    <mat-icon color="primary" matSuffix>email</mat-icon>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>Senha</mat-label>
+                    <input type="password" matInput placeholder="Digite a senha">
+                    <mat-icon color="primary" matSuffix>key</mat-icon>
+                </mat-form-field>
+
+                <p><mat-checkbox color="primary" class="perfil" >Admin</mat-checkbox></p>
+                <p><mat-checkbox color="primary" class="perfil" >Cliente</mat-checkbox></p>
+                <p><mat-checkbox color="primary" class="perfil" >Técnico</mat-checkbox></p>
+
+                <mat-divider></mat-divider>
+                <button mat-raised-button color="primary">Cadastrar</button>
+                
+            </section>
+        </form>
+    </div>
+</div>

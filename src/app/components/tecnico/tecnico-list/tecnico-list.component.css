@@ -5,6 +5,19 @@
 
 table {
     width: 100%;
+    border-collapse: collapse;
+    border-radius: 1rem;
+    background-color: transparent;
+}
+
+.container-table {
+    border-radius: .5rem;
+    border: 1px solid #2196f3;
+}
+
+mat-paginator {
+    background-color: transparent;
+    border-radius: .5rem;
 }
 
 mat-form-field {

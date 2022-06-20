@@ -10,7 +10,7 @@
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Nome, CPF ou email" #input>
   </mat-form-field>
   
-  <div class="mat-elevation-z8">
+  <div class="mat-elevation-z8 container-table">
     <table mat-table matSort [dataSource]="dataSource">
   
       <ng-container matColumnDef="id">
