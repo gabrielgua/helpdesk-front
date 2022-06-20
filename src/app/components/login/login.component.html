@@ -5,15 +5,16 @@
         <mat-divider></mat-divider>
 
         <h3>Faça o login para continuar</h3>
-
-        <mat-form-field class="input" mat-blue-grey appearance="fill">
-            <mat-label>E-mail</mat-label>
+        <mat-form-field appearance="outline" class="input">
+            <mat-label>Email</mat-label>
             <input [formControl]="email" [(ngModel)]="creds.email" name="email" matInput placeholder="Ex. email@mail.com" required>
+            <mat-icon color="primary" matSuffix>email</mat-icon>
         </mat-form-field>
-    
-        <mat-form-field class="input" appearance="fill">
+        
+        <mat-form-field appearance="outline" class="input">
             <mat-label>Senha</mat-label>
-            <input [formControl]="senha" [(ngModel)]="creds.senha" name="senha" matInput type="password" placeholder="Digite sua senha" required>
+            <input [formControl]="senha" [(ngModel)]="creds.senha" name="senha" type="password" matInput placeholder="Digite a senha" required>
+            <mat-icon color="primary" matSuffix>key</mat-icon>
         </mat-form-field>
 
         <button (click)="logar()" [disabled]="!validaCampos()" mat-raised-button color="primary">Login</button>
