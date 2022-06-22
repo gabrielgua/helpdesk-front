@@ -15,8 +15,16 @@ export class TecnicoService {
     return this.http.get<Tecnico[]>(`${API_CONFIG.baseUrl}/tecnicos`);
   }
 
-  criar(tecnico: Tecnico):Observable<Tecnico> {
+  criar(tecnico: Tecnico): Observable<Tecnico> {
     return this.http.post<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos`, tecnico);
+  }
+
+  buscarPorId(id: any): Observable<Tecnico> {
+    return this.http.get<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${id}`);
+  }
+
+  editar(tecnico: Tecnico): Observable<Tecnico> {
+    return this.http.put<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${tecnico.id}`, tecnico);
   }
 
 }

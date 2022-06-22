@@ -15,30 +15,35 @@
   
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> #. </th>
-        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+        <td mat-cell *matCellDef="let tecnico"> {{tecnico.id}} </td>
       </ng-container>
   
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
-        <td mat-cell *matCellDef="let row"> {{row.nome}} </td>
+        <td mat-cell *matCellDef="let tecnico"> {{tecnico.nome}} </td>
       </ng-container>
   
       
       <ng-container matColumnDef="cpf">
         <th mat-header-cell *matHeaderCellDef> CPF </th>
-        <td mat-cell *matCellDef="let row"> {{row.cpf}} </td>
+        <td mat-cell *matCellDef="let tecnico"> {{tecnico.cpf}} </td>
       </ng-container>
   
       
       <ng-container matColumnDef="email">
         <th mat-header-cell *matHeaderCellDef> Email </th>
-        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+        <td mat-cell *matCellDef="let tecnico"> {{tecnico.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataCriacao">
+        <th mat-header-cell *matHeaderCellDef> Data de Criação </th>
+        <td mat-cell *matCellDef="let tecnico"> {{tecnico.dataCriacao}} </td>
       </ng-container>
 
       <ng-container matColumnDef="acoes">
         <th mat-header-cell *matHeaderCellDef > Ações </th>
-        <td mat-cell *matCellDef="let row">
-          <a mat-mini-fab color="primary" class="btn-edit" routerLink="update">
+        <td mat-cell *matCellDef="let tecnico">
+          <a mat-mini-fab color="primary" class="btn-edit" routerLink="update/{{ tecnico.id }}">
             <mat-icon>edit</mat-icon>
           </a>
           <a mat-mini-fab color="warn" routerLink="">
