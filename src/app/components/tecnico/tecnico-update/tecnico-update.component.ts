@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -64,8 +65,9 @@ export class TecnicoUpdateComponent implements OnInit {
     } else {
       this.tecnico.perfis.push(perfil)
     }
-  }
 
+    console.log('adicionar perfil: ', this.tecnico.perfis)
+  }
 
   validaCampos(): Boolean {
     return this.nome.valid && 
@@ -76,8 +78,38 @@ export class TecnicoUpdateComponent implements OnInit {
 
   buscarPorId(): void {
     this.service.buscarPorId(this.tecnico.id).subscribe(resp => {
-      resp.perfis = [];
       this.tecnico = resp;
+      console.log('requisição findTecnicoById: ', this.tecnico.perfis)
+
+      this.tecnico.perfis = this.transformarPerfisToNumeros(resp.perfis);
+
+      console.log('perfis novos já na this.tecnico.perfis: ', this.tecnico.perfis);
     });
   }  
+
+  transformarPerfisToNumeros(perfis: string[]): string[] {
+    let perfisAux: string[] = [];
+
+    perfis.forEach(p => {
+      switch (p) {
+        case 'ADMIN': perfisAux.push('0'); break;
+        case 'CLIENTE': perfisAux.push('1'); break;
+        case 'TECNICO': perfisAux.push('2'); break;
+        default: break;
+      }
+
+    })
+
+    console.log('perfis antigos: ', perfis);
+    console.log('perfis novos numeros: ', perfisAux);
+    return perfisAux;
+  }
+
+  buscarPerfil(perfil: string): boolean {
+    if(this.tecnico.perfis.includes(perfil)) {
+      return true;
+    } 
+
+    return false;
+  }
 }

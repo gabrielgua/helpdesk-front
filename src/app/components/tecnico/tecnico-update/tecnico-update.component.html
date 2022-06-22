@@ -56,9 +56,9 @@
                     <mat-icon color="primary" matSuffix>key</mat-icon>
                 </mat-form-field>
 
-                <p><mat-checkbox (click)="adicionarPerfil('0')" color="primary" class="perfil" >Admin</mat-checkbox></p>
-                <p><mat-checkbox (click)="adicionarPerfil('1')" color="primary" class="perfil" >Cliente</mat-checkbox></p>
-                <p><mat-checkbox (click)="adicionarPerfil('2')" color="primary" class="perfil" >Técnico</mat-checkbox></p>
+                <p><mat-checkbox [checked]="buscarPerfil('0')" (change)="adicionarPerfil('0')" color="primary" class="perfil" >Admin</mat-checkbox></p>
+                <p><mat-checkbox [checked]="buscarPerfil('1')" (change)="adicionarPerfil('1')"color="primary" class="perfil" >Cliente</mat-checkbox></p>
+                <p><mat-checkbox [checked]="buscarPerfil('2')" (change)="adicionarPerfil('2')" color="primary" class="perfil" >Técnico</mat-checkbox></p>
 
                 <mat-divider></mat-divider>
                 <button (click)="atualizarTecnico()" [disabled]="!validaCampos()" mat-raised-button color="primary">Atualizar</button>
