@@ -45,10 +45,8 @@ export class TecnicoUpdateComponent implements OnInit {
     this.service.editar(this.tecnico).subscribe(() => {
       this.toast.success('Técnico atualizado no sistema!', 'Atualização');
       this.router.navigate(['tecnicos']);
-      console.log(this.tecnico)
     }, ex => {
       console.log(ex);
-      console.log(this.tecnico)
       if(ex.error.errors) {
         ex.error.errors.forEach(element => {
           this.toast.error(element.message, 'Cadastro');
@@ -79,11 +77,7 @@ export class TecnicoUpdateComponent implements OnInit {
   buscarPorId(): void {
     this.service.buscarPorId(this.tecnico.id).subscribe(resp => {
       this.tecnico = resp;
-      console.log('requisição findTecnicoById: ', this.tecnico.perfis)
-
       this.tecnico.perfis = this.transformarPerfisToNumeros(resp.perfis);
-
-      console.log('perfis novos já na this.tecnico.perfis: ', this.tecnico.perfis);
     });
   }  
 
@@ -99,9 +93,6 @@ export class TecnicoUpdateComponent implements OnInit {
       }
 
     })
-
-    console.log('perfis antigos: ', perfis);
-    console.log('perfis novos numeros: ', perfisAux);
     return perfisAux;
   }
 
