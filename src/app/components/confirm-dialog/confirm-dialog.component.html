@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>{{titulo}}</h1>
+<div mat-dialog-content>
+    {{msg}}
+</div>
+<div mat-dialog-actions>
+    <button mat-raised-button mat-dialog-close cdkFocusInitial color="warn" (click)="dialogRef.close(true)">Sim</button>
+    <button mat-button mat-dialog-close (click)="dialogRef.close(false)">Cancelar</button>
+</div>
+

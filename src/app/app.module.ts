@@ -38,7 +38,8 @@ import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
-import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecnico-delete.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
 
 
 
@@ -52,7 +53,7 @@ import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecn
     LoginComponent,
     TecnicoCreateComponent,
     TecnicoUpdateComponent,
-    TecnicoDeleteComponent
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -78,6 +79,7 @@ import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecn
     MatIconModule,
     MatListModule,
     MatCardModule,
+    MatDialogModule,
     ToastrModule.forRoot({
       timeOut: 4000,
       closeButton: true,

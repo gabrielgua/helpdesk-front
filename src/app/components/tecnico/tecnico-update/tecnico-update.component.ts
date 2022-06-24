@@ -1,6 +1,5 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import {  FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Tecnico } from 'src/app/models/tecnico';
@@ -33,7 +32,6 @@ export class TecnicoUpdateComponent implements OnInit {
     private toast: ToastrService,
     private router: Router,
     private route: ActivatedRoute,
-    private _formBuilder: FormBuilder
   ) { }
 
   ngOnInit(): void {
