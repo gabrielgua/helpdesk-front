@@ -41,3 +41,7 @@ mat-radio-group {
 mat-radio-button {
     margin-right: 1rem;
 }
+
+.margin-primeiro {
+    margin-left: 1rem;
+}
