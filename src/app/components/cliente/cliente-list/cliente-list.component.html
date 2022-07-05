@@ -1,0 +1,65 @@
+<div class="container">
+
+  <h1>Lista de Clientes</h1>
+  <mat-divider></mat-divider>
+
+  <button routerLink="create" mat-raised-button color="primary">Novo Cliente</button>
+
+  <mat-form-field appearance="standard">
+    <mat-label>Buscar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Nome, CPF ou email" #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8 container-table">
+    <table mat-table matSort [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> #. </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.id}} </td>
+      </ng-container>
+  
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.nome}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="cpf">
+        <th mat-header-cell *matHeaderCellDef> CPF </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.cpf}} </td>
+      </ng-container>
+  
+      
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef> Email </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.email}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dataCriacao">
+        <th mat-header-cell *matHeaderCellDef> Data de Criação </th>
+        <td mat-cell *matCellDef="let cliente"> {{cliente.dataCriacao}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="acoes">
+        <th mat-header-cell *matHeaderCellDef > Ações </th>
+        <td mat-cell *matCellDef="let cliente">
+          <a mat-mini-fab color="primary" class="btn-edit" routerLink="update/{{ cliente.id }}">
+            <mat-icon>edit</mat-icon>
+          </a>
+          <a mat-mini-fab color="warn" (click)="AbrirDialog(cliente.id)"> 
+            <mat-icon>delete</mat-icon>
+          </a>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">Não encontramos nada para "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[10, 25]" aria-label="Select page of users"></mat-paginator>
+  </div>
+</div>

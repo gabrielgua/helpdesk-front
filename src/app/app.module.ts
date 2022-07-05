@@ -40,6 +40,9 @@ import { NgxMaskModule } from 'ngx-mask';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
+import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
+import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 
 
 
@@ -53,7 +56,10 @@ import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dial
     LoginComponent,
     TecnicoCreateComponent,
     TecnicoUpdateComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    ClienteCreateComponent,
+    ClienteUpdateComponent,
+    ClienteListComponent,
   ],
   imports: [
     BrowserModule,

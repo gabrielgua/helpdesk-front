@@ -1,0 +1,66 @@
+<div class="container">
+    <h1>Cadastrar novo Cliente</h1>
+    <mat-divider></mat-divider>
+    <div class="container-form mat-elevation-z8">
+        <form class="form">
+    
+            <section class="section">
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>Nome</mat-label>
+                    <input 
+                        [(ngModel)]="cliente.nome" 
+                        name="nome"
+                        [formControl]="nome" 
+                        required 
+                        matInput 
+                        placeholder="Digite o nome" 
+                        maxlength="50">
+                    <mat-icon color="primary" matSuffix>person</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>CPF</mat-label>
+                    <input 
+                        [(ngModel)]="cliente.cpf"
+                        name="cpf"
+                        [formControl]="cpf" 
+                        required 
+                        matInput 
+                        placeholder="Digite o CPF" 
+                        mask="000.000.000-00">
+                    <mat-icon color="primary" matSuffix>pin</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>Email</mat-label>
+                    <input 
+                        [(ngModel)]="cliente.email"
+                        name="email"
+                        [formControl]="email" 
+                        required 
+                        matInput 
+                        placeholder="Digite o email">
+                    <mat-icon color="primary" matSuffix>email</mat-icon>
+                </mat-form-field>
+                
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>Senha</mat-label>
+                    <input 
+                         [(ngModel)]="cliente.senha"
+                        name="senha"
+                        [formControl]="senha" 
+                        required 
+                        type="password" 
+                        matInput 
+                        placeholder="Digite a senha">
+                    <mat-icon color="primary" matSuffix>key</mat-icon>
+                </mat-form-field>
+                <p><mat-checkbox color="primary" class="perfil" [disabled]="true" [checked]="true">Cliente</mat-checkbox></p>
+                
+                <mat-divider></mat-divider>
+                <button (click)="criarCliente()" [disabled]="!validaCampos()" mat-raised-button color="primary">Cadastrar</button>
+                
+            </section>
+        </form>
+    </div>
+</div>
