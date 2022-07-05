@@ -9,6 +9,8 @@
                     <mat-label>Título</mat-label>
                     <input 
                         type="text" 
+                        name="titulo"
+                        [formControl]="titulo"
                         required 
                         matInput 
                         placeholder="Digite o título do chamado" 
@@ -20,6 +22,8 @@
                     <mat-label>Descrição</mat-label>
                     <textarea 
                         type="textarea" 
+                        name="descricao"
+                        [formControl]="descricao"
                         required 
                         matInput 
                         placeholder="O que está acontecendo?" 
@@ -30,7 +34,10 @@
                 <div class="status-prioridade">
                     <mat-form-field appearance="outline">
                         <mat-label>Status do chamado</mat-label>
-                        <mat-select>
+                        <mat-select
+                            name="status"
+                            [formControl]="status"
+                        >
                             <mat-option value="0">Aberto</mat-option>
                             <mat-option value="0">Em andamento</mat-option>
                             <mat-option value="0">Encerrado</mat-option>
@@ -39,7 +46,10 @@
 
                     <mat-form-field appearance="outline">
                         <mat-label>Prioridade do chamado</mat-label>
-                        <mat-select>
+                        <mat-select
+                            name="prioridade"
+                            [formControl]="prioridade"
+                        >
                             <mat-option value="0">Alta</mat-option>
                             <mat-option value="0">Média</mat-option>
                             <mat-option value="0">Baixa</mat-option>
@@ -50,8 +60,11 @@
                 <div class="tecnico">
                     <mat-form-field appearance="outline" class="fullWidth">
                         <mat-label>Técnico Responsável</mat-label>
-                        <mat-select>
-                           <mat-option>Opa kkjj</mat-option>
+                        <mat-select
+                            name="tecnico"
+                            [formControl]="tecnico"
+                        >
+                           <mat-option value="0">Opa kkjj</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>
@@ -59,15 +72,18 @@
                 <div class="cliente">
                     <mat-form-field appearance="outline" class="fullWidth">
                         <mat-label>Cliente</mat-label>
-                        <mat-select>
-                           <mat-option>Opa kkjj</mat-option>
+                        <mat-select
+                            name="cliente"
+                            [formControl]="cliente"
+                        >
+                           <mat-option value="0">Opa kkjj</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>
 
                 <mat-divider></mat-divider>
 
-                <button mat-raised-button color="primary">Enviar</button>
+                <button [disabled]="!validaCampos()" mat-raised-button color="primary">Enviar</button>
                 <button mat-button color="warn">Cancelar</button>
             </section>
         </form>
