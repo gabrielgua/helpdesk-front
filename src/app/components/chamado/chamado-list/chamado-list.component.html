@@ -1,1 +1,80 @@
-<p>chamado-list works!</p>
+<div class="container">
+
+    <h1>Lista de Chamados</h1>
+    <mat-divider></mat-divider>
+  
+    <button routerLink="create" mat-raised-button color="primary">Novo Chamado</button>
+
+    <mat-form-field appearance="standard">
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Nome, CPF ou email" #input>
+    </mat-form-field>
+
+    <mat-radio-group color="primary">
+        <mat-radio-button>Aberto</mat-radio-button>
+        <mat-radio-button>Andamento</mat-radio-button>
+        <mat-radio-button>Encerrado</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="mat-elevation-z8 container-table">
+      <table mat-table matSort [dataSource]="ELEMENT_DATA">
+    
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> #. </th>
+          <td mat-cell *matCellDef="let chamado"> {{chamado.id}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="titulo">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </th>
+          <td mat-cell *matCellDef="let chamado"> {{chamado.titulo}} </td>
+        </ng-container>
+    
+        
+        <ng-container matColumnDef="cliente">
+          <th mat-header-cell *matHeaderCellDef> Cliente #. </th>
+          <td mat-cell *matCellDef="let chamado"> {{chamado.nomeCliente}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="tecnico">
+            <th mat-header-cell *matHeaderCellDef> Técnico #. </th>
+            <td mat-cell *matCellDef="let chamado"> {{chamado.nomeTecnico}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="dataAbertura">
+          <th mat-header-cell *matHeaderCellDef> Data de Abertura </th>
+          <td mat-cell *matCellDef="let chamado"> {{chamado.dataAbertura}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="prioridade">
+          <th mat-header-cell *matHeaderCellDef> Prioridade </th>
+          <td mat-cell *matCellDef="let chamado"> {{chamado.prioridade}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> Status </th>
+            <td mat-cell *matCellDef="let chamado"> {{chamado.status}} </td>
+          </ng-container>
+
+        <ng-container matColumnDef="acoes">
+          <th mat-header-cell *matHeaderCellDef > Ações </th>
+          <td mat-cell *matCellDef="let chamado">
+            <a mat-mini-fab color="primary" class="btn-edit">
+              <mat-icon>edit</mat-icon>
+            </a>
+            <a mat-mini-fab color="primary" class="btn-edit">
+                <mat-icon>visibility</mat-icon>
+            </a>  
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">Não encontramos nada para "{{input.value}}"</td>
+        </tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[10, 25]" aria-label="Select page of users"></mat-paginator>
+    </div>
+  </div>
