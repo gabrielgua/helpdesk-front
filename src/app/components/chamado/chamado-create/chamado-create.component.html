@@ -1,1 +1,75 @@
-<p>chamado-create works!</p>
+<div class="container">
+    <h1>Criar Chamado</h1>
+    <mat-divider></mat-divider>
+
+    <div class="container-form mat-elevation-z8">
+        <form class="form">
+            <section class="section">
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>Título</mat-label>
+                    <input 
+                        type="text" 
+                        required 
+                        matInput 
+                        placeholder="Digite o título do chamado" 
+                        maxlength="50">
+                    <mat-icon color="primary" matSuffix>title</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="fullWidth">
+                    <mat-label>Descrição</mat-label>
+                    <textarea 
+                        type="textarea" 
+                        required 
+                        matInput 
+                        placeholder="O que está acontecendo?" 
+                        maxlength="250"></textarea>
+                    <mat-icon color="primary" matSuffix>description</mat-icon>
+                </mat-form-field>
+                
+                <div class="status-prioridade">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Status do chamado</mat-label>
+                        <mat-select>
+                            <mat-option value="0">Aberto</mat-option>
+                            <mat-option value="0">Em andamento</mat-option>
+                            <mat-option value="0">Encerrado</mat-option>
+                        </mat-select>  
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Prioridade do chamado</mat-label>
+                        <mat-select>
+                            <mat-option value="0">Alta</mat-option>
+                            <mat-option value="0">Média</mat-option>
+                            <mat-option value="0">Baixa</mat-option>
+                        </mat-select>  
+                    </mat-form-field>
+                </div>
+
+                <div class="tecnico">
+                    <mat-form-field appearance="outline" class="fullWidth">
+                        <mat-label>Técnico Responsável</mat-label>
+                        <mat-select>
+                           <mat-option>Opa kkjj</mat-option>
+                        </mat-select>  
+                    </mat-form-field>
+                </div>
+
+                <div class="cliente">
+                    <mat-form-field appearance="outline" class="fullWidth">
+                        <mat-label>Cliente</mat-label>
+                        <mat-select>
+                           <mat-option>Opa kkjj</mat-option>
+                        </mat-select>  
+                    </mat-form-field>
+                </div>
+
+                <mat-divider></mat-divider>
+
+                <button mat-raised-button color="primary">Enviar</button>
+                <button mat-button color="warn">Cancelar</button>
+            </section>
+        </form>
+    </div>
+</div>
