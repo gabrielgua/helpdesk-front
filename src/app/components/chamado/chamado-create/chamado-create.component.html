@@ -9,6 +9,7 @@
                     <mat-label>Título</mat-label>
                     <input 
                         type="text" 
+                        [(ngModel)]="chamado.titulo"
                         name="titulo"
                         [formControl]="titulo"
                         required 
@@ -19,11 +20,12 @@
                 </mat-form-field>
 
                 <mat-form-field appearance="outline" class="fullWidth">
-                    <mat-label>Descrição</mat-label>
+                    <mat-label>Observações</mat-label>
                     <textarea 
-                        type="textarea" 
-                        name="descricao"
-                        [formControl]="descricao"
+                        type="textarea"
+                        [(ngModel)]="chamado.observacoes" 
+                        name="observacoes"
+                        [formControl]="observacoes"
                         required 
                         matInput 
                         placeholder="O que está acontecendo?" 
@@ -35,6 +37,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Status do chamado</mat-label>
                         <mat-select
+                            [(ngModel)]="chamado.status"
                             name="status"
                             [formControl]="status"
                         >
@@ -47,6 +50,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Prioridade do chamado</mat-label>
                         <mat-select
+                            [(ngModel)]="chamado.prioridade"
                             name="prioridade"
                             [formControl]="prioridade"
                         >
@@ -61,10 +65,11 @@
                     <mat-form-field appearance="outline" class="fullWidth">
                         <mat-label>Técnico Responsável</mat-label>
                         <mat-select
+                            [(ngModel)]="chamado.tecnico"
                             name="tecnico"
                             [formControl]="tecnico"
                         >
-                           <mat-option value="0">Opa kkjj</mat-option>
+                           <mat-option *ngFor="let tecnico of tecnicos" value="{{tecnico.id}}">{{tecnico.nome}}</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>
@@ -73,17 +78,18 @@
                     <mat-form-field appearance="outline" class="fullWidth">
                         <mat-label>Cliente</mat-label>
                         <mat-select
+                            [(ngModel)]="chamado.cliente"
                             name="cliente"
                             [formControl]="cliente"
                         >
-                           <mat-option value="0">Opa kkjj</mat-option>
+                           <mat-option *ngFor="let cliente of clientes" value="{{cliente.id}}">{{cliente.nome}}</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>
 
                 <mat-divider></mat-divider>
 
-                <button [disabled]="!validaCampos()" mat-raised-button color="primary">Enviar</button>
+                <button (click)="salvar()" [disabled]="!validaCampos()" mat-raised-button color="primary">Enviar</button>
                 <button mat-button color="warn">Cancelar</button>
             </section>
         </form>
