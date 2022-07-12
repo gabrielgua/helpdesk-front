@@ -16,7 +16,15 @@ export class ChamadoService {
     return this.http.post<Chamado>(`${API_CONFIG.baseUrl}/chamados`, chamado);
   }
 
+  buscarPorId(id: any): Observable<Chamado> {
+    return this.http.get<Chamado>(`${API_CONFIG.baseUrl}/chamados/${id}`)
+  }
+
   buscarTodos(): Observable<Chamado[]> {
     return this.http.get<Chamado[]>(`${API_CONFIG.baseUrl}/chamados`);
+  }
+
+  editar(chamado: Chamado): Observable<Chamado> {
+    return this.http.put<Chamado>(`${API_CONFIG.baseUrl}/chamados/${chamado.id}`, chamado);
   }
 }

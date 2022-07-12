@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Criar Chamado</h1>
+    <h1>Atualizar chamado</h1>
     <mat-divider></mat-divider>
 
     <div class="container-form mat-elevation-z8">
@@ -35,41 +35,33 @@
                 
                 <div class="status-prioridade">
                     <mat-form-field appearance="outline">
-                        <mat-label>Status do chamado</mat-label>
+                        <mat-label>Status</mat-label>
                         <mat-select
-                            [(ngModel)]="chamado.status"
-                            name="status"
-                            [formControl]="status"
-                            #singleSelect>
-                            <mat-option value="0">Aberto</mat-option>
-                            <mat-option value="0">Em andamento</mat-option>
-                            <mat-option value="0">Encerrado</mat-option>
+                            [(value)]="chamado.status"
+                            >
+                            <mat-option [value]="0">Aberto</mat-option>
+                            <mat-option [value]="1">Em andamento</mat-option>
+                            <mat-option [value]="2">Encerrado</mat-option>
                         </mat-select>  
                     </mat-form-field>
 
                     <mat-form-field appearance="outline">
-                        <mat-label>Prioridade do chamado</mat-label>
+                        <mat-label>Prioridade</mat-label>
                         <mat-select
-                            [(ngModel)]="chamado.prioridade"
-                            name="prioridade"
-                            [formControl]="prioridade"
-                            #singleSelect>
-                            <mat-option value="0">Alta</mat-option>
-                            <mat-option value="0">Média</mat-option>
-                            <mat-option value="0">Baixa</mat-option>
+                            [(value)]="chamado.prioridade"
+                            >
+                            <mat-option [value]="0">Baixa</mat-option>
+                            <mat-option [value]="1">Média</mat-option>
+                            <mat-option [value]="2">Alta</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>
 
                 <div class="tecnico">
                     <mat-form-field appearance="outline" class="fullWidth">
-                        <mat-label>Técnico Responsável</mat-label>
-                        <mat-select
-                            [(ngModel)]="chamado.tecnico"
-                            name="tecnico"
-                            [formControl]="tecnico"
-                            #singleSelect>
-                            <mat-option *ngFor="let tecnico of tecnicos" value="{{tecnico.id}}">{{tecnico.nome}}</mat-option>
+                        <mat-label>Técnico</mat-label>
+                        <mat-select [(value)]="chamado.tecnico">
+                            <mat-option [value]="tecnico.id" *ngFor="let tecnico of tecnicos" >{{tecnico.nome}}</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>
@@ -77,19 +69,15 @@
                 <div class="cliente">
                     <mat-form-field appearance="outline" class="fullWidth">
                         <mat-label>Cliente</mat-label>
-                        <mat-select
-                            [(ngModel)]="chamado.cliente"
-                            name="cliente"
-                            [formControl]="cliente"
-                            #singleSelect>
-                           <mat-option *ngFor="let cliente of clientes" value="{{cliente.id}}">{{cliente.nome}}</mat-option>
+                        <mat-select [(value)]="chamado.cliente">
+                           <mat-option *ngFor="let cliente of clientes" [value]="cliente.id">{{cliente.nome}}</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>
 
                 <mat-divider></mat-divider>
 
-                <button (click)="salvar()" [disabled]="!validaCampos()" mat-raised-button color="primary">Enviar</button>
+                <button (click)="editar()" [disabled]="!validaCampos()" mat-raised-button color="primary">Enviar</button>
                 <button routerLink="../" mat-button color="warn">Cancelar</button>
             </section>
         </form>

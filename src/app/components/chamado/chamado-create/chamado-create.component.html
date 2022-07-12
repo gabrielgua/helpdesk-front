@@ -42,8 +42,8 @@
                             [formControl]="status"
                             #singleSelect>
                             <mat-option value="0">Aberto</mat-option>
-                            <mat-option value="0">Em andamento</mat-option>
-                            <mat-option value="0">Encerrado</mat-option>
+                            <mat-option value="1">Em andamento</mat-option>
+                            <mat-option value="2">Encerrado</mat-option>
                         </mat-select>  
                     </mat-form-field>
 
@@ -54,9 +54,9 @@
                             name="prioridade"
                             [formControl]="prioridade"
                             #singleSelect>
-                            <mat-option value="0">Alta</mat-option>
-                            <mat-option value="0">Média</mat-option>
                             <mat-option value="0">Baixa</mat-option>
+                            <mat-option value="1">Média</mat-option>
+                            <mat-option value="2">Alta</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>

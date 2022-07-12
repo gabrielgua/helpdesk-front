@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Chamado } from 'src/app/models/chamado';
@@ -9,7 +9,6 @@ import { Tecnico } from 'src/app/models/tecnico';
 import { ChamadoService } from 'src/app/services/chamado.service';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { TecnicoService } from 'src/app/services/tecnico.service';
-
 
 @Component({
   selector: 'app-chamado-update',
@@ -32,7 +31,6 @@ export class ChamadoUpdateComponent implements OnInit {
   clientes: Cliente[] = [];
   tecnicos: Tecnico[] = [];
 
-
   prioridade: FormControl =  new FormControl(null, [Validators.required]);
   status:     FormControl =  new FormControl(null, [Validators.required]);
   titulo:     FormControl =  new FormControl(null, [Validators.required]);
@@ -45,24 +43,28 @@ export class ChamadoUpdateComponent implements OnInit {
     private clienteService: ClienteService,
     private tecnicoService: TecnicoService,
     private toastService: ToastrService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.chamado.id = this.route.snapshot.paramMap.get('id');
+    this.buscarPorId();
     this.buscarTodosClientes();
     this.buscarTodosTecnicos();
-    
   }
 
-  private _filter(value: string): Tecnico[] {
-    const filterValue = value.toLowerCase();
-
-    return this.tecnicos.filter(tecnico => tecnico.nome.toLowerCase().includes(filterValue));
+  buscarPorId(): void {
+    this.chamadoService.buscarPorId(this.chamado.id).subscribe(res => {
+      this.chamado = res;
+    }, ex => {
+      this.toastService.error(ex.error.error);
+    });
   }
 
-  salvar(): void {
-    this.chamadoService.salvar(this.chamado).subscribe(res => {
-      this.toastService.success('Chamado criado com sucesso', 'Chamado');
+  editar(): void {
+    this.chamadoService.editar(this.chamado).subscribe(res => {
+      this.toastService.success('Chamado atualizado com sucesso', 'Chamado');
       this.router.navigate(['chamados']);
     }, ex => {
       this.toastService.error(ex.error.error, 'Erro');
@@ -82,11 +84,23 @@ export class ChamadoUpdateComponent implements OnInit {
   }
   
   validaCampos(): boolean {
-    return  this.prioridade.valid &&
-            this.status.valid &&
-            this.titulo.valid &&
-            this.observacoes.valid &&
-            this.tecnico.valid &&
-            this.cliente.valid;
+    return  this.titulo.valid &&
+            this.observacoes.valid;
+  }
+
+  retornaStatus(status: any): string {
+    switch (status) {
+      case 0: return 'Aberto';
+      case 1: return 'Em andamento'; 
+      default: return 'Encerrado';
+    }
+  }
+
+  retornaPrioridade(prioridade: any): string {
+    switch (prioridade) {
+      case 0: return 'Baixa';
+      case 1: return 'Média'; 
+      default: return 'Alta';
+    }
   }
 }
