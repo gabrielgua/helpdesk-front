@@ -37,6 +37,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthInterceptorProvider } from './interceptors/auth.interceptor';
 import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecnico-create.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
@@ -45,6 +47,7 @@ import { ClienteUpdateComponent } from './components/cliente/cliente-update/clie
 import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
 import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
 import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
+import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
 
 
 
@@ -64,6 +67,7 @@ import { ChamadoCreateComponent } from './components/chamado/chamado-create/cham
     ClienteListComponent,
     ChamadoListComponent,
     ChamadoCreateComponent,
+    ChamadoUpdateComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,6 +87,8 @@ import { ChamadoCreateComponent } from './components/chamado/chamado-create/cham
     MatSidenavModule,
     MatButtonModule,
     MatSelectModule,
+    NgxMatSelectSearchModule,
+    MatAutocompleteModule,
     MatTableModule,
     MatRadioModule,
     MatInputModule,

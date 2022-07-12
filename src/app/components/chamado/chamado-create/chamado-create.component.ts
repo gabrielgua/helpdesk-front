@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { Observable } from 'rxjs';
+import {map, startWith} from 'rxjs/operators';
 import { Chamado } from 'src/app/models/chamado';
 import { Cliente } from 'src/app/models/cliente';
 import { Tecnico } from 'src/app/models/tecnico';
@@ -30,11 +32,12 @@ export class ChamadoCreateComponent implements OnInit {
   clientes: Cliente[] = [];
   tecnicos: Tecnico[] = [];
 
+
   prioridade: FormControl =  new FormControl(null, [Validators.required]);
   status:     FormControl =  new FormControl(null, [Validators.required]);
   titulo:     FormControl =  new FormControl(null, [Validators.required]);
   observacoes:  FormControl =  new FormControl(null, [Validators.required]);
-  tecnico:    FormControl =  new FormControl(null, [Validators.required]);
+  tecnico:    FormControl =  new FormControl([Validators.required]);
   cliente:    FormControl =  new FormControl(null, [Validators.required]);
   
   constructor(
@@ -48,6 +51,13 @@ export class ChamadoCreateComponent implements OnInit {
   ngOnInit(): void {
     this.buscarTodosClientes();
     this.buscarTodosTecnicos();
+    
+  }
+
+  private _filter(value: string): Tecnico[] {
+    const filterValue = value.toLowerCase();
+
+    return this.tecnicos.filter(tecnico => tecnico.nome.toLowerCase().includes(filterValue));
   }
 
   salvar(): void {
@@ -79,5 +89,6 @@ export class ChamadoCreateComponent implements OnInit {
             this.tecnico.valid &&
             this.cliente.valid;
   }
+
 
 }

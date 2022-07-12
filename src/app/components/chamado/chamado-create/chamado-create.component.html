@@ -40,7 +40,7 @@
                             [(ngModel)]="chamado.status"
                             name="status"
                             [formControl]="status"
-                        >
+                            #singleSelect>
                             <mat-option value="0">Aberto</mat-option>
                             <mat-option value="0">Em andamento</mat-option>
                             <mat-option value="0">Encerrado</mat-option>
@@ -53,7 +53,7 @@
                             [(ngModel)]="chamado.prioridade"
                             name="prioridade"
                             [formControl]="prioridade"
-                        >
+                            #singleSelect>
                             <mat-option value="0">Alta</mat-option>
                             <mat-option value="0">Média</mat-option>
                             <mat-option value="0">Baixa</mat-option>
@@ -68,8 +68,8 @@
                             [(ngModel)]="chamado.tecnico"
                             name="tecnico"
                             [formControl]="tecnico"
-                        >
-                           <mat-option *ngFor="let tecnico of tecnicos" value="{{tecnico.id}}">{{tecnico.nome}}</mat-option>
+                            #singleSelect>
+                            <mat-option *ngFor="let tecnico of tecnicos" value="{{tecnico.id}}">{{tecnico.nome}}</mat-option>
                         </mat-select>  
                     </mat-form-field>
                 </div>
@@ -81,7 +81,7 @@
                             [(ngModel)]="chamado.cliente"
                             name="cliente"
                             [formControl]="cliente"
-                        >
+                            #singleSelect>
                            <mat-option *ngFor="let cliente of clientes" value="{{cliente.id}}">{{cliente.nome}}</mat-option>
                         </mat-select>  
                     </mat-form-field>
@@ -90,7 +90,7 @@
                 <mat-divider></mat-divider>
 
                 <button (click)="salvar()" [disabled]="!validaCampos()" mat-raised-button color="primary">Enviar</button>
-                <button mat-button color="warn">Cancelar</button>
+                <button routerLink="../" mat-button color="warn">Cancelar</button>
             </section>
         </form>
     </div>
