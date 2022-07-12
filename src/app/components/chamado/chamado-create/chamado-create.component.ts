@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Observable } from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
 import { Chamado } from 'src/app/models/chamado';
 import { Cliente } from 'src/app/models/cliente';
 import { Tecnico } from 'src/app/models/tecnico';
