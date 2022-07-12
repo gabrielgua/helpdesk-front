@@ -1,0 +1,45 @@
+mat-divider {
+    margin-bottom: 1rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.fullWidth {
+    width: 100%;
+}
+
+.status-prioridade {
+    display: flex;
+    justify-content: space-between;
+}
+
+.status-prioridade mat-form-field {
+    width: 49%;
+}
+
+textarea {
+    min-height: 6rem;
+    max-height: 10rem;
+}
+
+.data-prioridade-status {
+    display: flex;
+    justify-content: space-between;   
+}
+
+.data-prioridade-status mat-form-field {
+    width: 24%;
+}
+
+.tecnico-cliente {
+    display: flex;
+    justify-content: space-between; 
+}
+
+.tecnico-cliente mat-form-field {
+    width: 49%;
+}
+

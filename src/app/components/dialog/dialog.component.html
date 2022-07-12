@@ -1,1 +1,64 @@
-<p>dialog works!</p>
+<div class="header">
+    <h1 class="mat-dialog-title">Vizualizar chamado #{{data.id}}</h1>
+    <button mat-icon-button mat-dialog-close color="primary" >
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-divider></mat-divider>
+<div mat-dialog-content>
+    <form class="form">
+        <section class="section">
+            <mat-form-field appearance="outline" class="fullWidth">
+                <mat-label>Título</mat-label>
+                <input type="text" matInput [value]="data.titulo" disabled>
+                <mat-icon color="primary" matSuffix>title</mat-icon>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="fullWidth">
+                <mat-label>Observações</mat-label>
+                <textarea type="text" matInput [value]="data.observacoes" disabled></textarea>
+                <mat-icon color="primary" matSuffix>description</mat-icon>
+            </mat-form-field>
+            
+            <div class="data-prioridade-status">
+                <mat-form-field appearance="outline" >
+                    <mat-label>Data Abertura</mat-label>
+                    <input type="text" matInput [value]="data.dataAbertura" disabled>
+                    <mat-icon color="primary" matSuffix>calendar_month</mat-icon>
+                </mat-form-field>
+    
+                <mat-form-field appearance="outline" >
+                    <mat-label>Data Fechamento</mat-label>
+                    <input type="text" matInput [value]="data.dataFechamento" disabled>
+                    <mat-icon color="primary" matSuffix>calendar_month</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" >
+                    <mat-label>Status</mat-label>
+                    <input type="text" matInput [value]="data.status" disabled>
+                    <mat-icon color="primary" matSuffix>task_alt</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" >
+                    <mat-label>Prioridade</mat-label>
+                    <input type="text" matInput [value]="data.prioridade" disabled>
+                    <mat-icon color="primary" matSuffix>info</mat-icon>
+                </mat-form-field>
+            </div>
+
+            <div class="tecnico-cliente">
+                <mat-form-field appearance="outline" >
+                    <mat-label>Técnico</mat-label>
+                    <input type="text" matInput value="#{{data.tecnico}} - {{data.nomeTecnico}}" disabled>
+                    <mat-icon color="primary" matSuffix>account_circle</mat-icon>
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" >
+                    <mat-label>Cliente</mat-label>
+                    <input type="text" matInput value="#{{data.cliente}} - {{data.nomeCliente}}" disabled>
+                    <mat-icon color="primary" matSuffix>person</mat-icon>
+                </mat-form-field>
+            </div>
+        </section>
+    </form>
+</div>

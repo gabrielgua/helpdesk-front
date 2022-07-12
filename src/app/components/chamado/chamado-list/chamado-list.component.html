@@ -63,9 +63,9 @@
             <a mat-mini-fab color="primary" routerLink="update/{{chamado.id}}" class="btn-edit">
               <mat-icon>edit</mat-icon>
             </a>
-            <a mat-mini-fab color="primary" class="btn-edit">
+            <button mat-mini-fab color="primary" class="btn-edit" (click)="abrirDialog(chamado)">
                 <mat-icon>visibility</mat-icon>
-            </a>  
+            </button>  
           </td>
         </ng-container>
     
