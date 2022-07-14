@@ -49,6 +49,7 @@ import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-
 import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
 import { ChamadoUpdateComponent } from './components/chamado/chamado-update/chamado-update.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+import { MatSortModule } from '@angular/material/sort';
 
 
 
@@ -86,6 +87,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
     MatCheckboxModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatSortModule,
     MatSidenavModule,
     MatButtonModule,
     MatSelectModule,

@@ -43,6 +43,7 @@ export class ClienteListComponent implements OnInit, OnChanges {
       this.ELEMENT_DATA = resp;
       this.dataSource = new MatTableDataSource<Cliente>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 

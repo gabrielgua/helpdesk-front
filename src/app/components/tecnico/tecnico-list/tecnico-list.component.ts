@@ -43,6 +43,7 @@ export class TecnicoListComponent implements OnInit, OnChanges {
       this.ELEMENT_DATA = resp;
       this.dataSource = new MatTableDataSource<Tecnico>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 

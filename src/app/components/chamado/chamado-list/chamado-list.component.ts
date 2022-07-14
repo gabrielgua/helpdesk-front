@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Chamado } from 'src/app/models/chamado';
 import { ChamadoService } from 'src/app/services/chamado.service';
@@ -12,7 +12,7 @@ import { DialogComponent } from '../../dialog/dialog.component';
   templateUrl: './chamado-list.component.html',
   styleUrls: ['./chamado-list.component.css']
 })
-export class ChamadoListComponent implements OnInit {
+export class ChamadoListComponent implements OnInit, AfterViewInit {
 
   ELEMENT_DATA: Chamado[] = [];
   FILTRED_DATA: Chamado[] = [];
@@ -27,6 +27,10 @@ export class ChamadoListComponent implements OnInit {
     private service: ChamadoService,
     private dialog: MatDialog
     ) { }
+
+  ngAfterViewInit(): void {
+    this.buscarTodos();
+  }
 
   ngOnInit(): void {
     this.buscarTodos();
@@ -46,6 +50,7 @@ export class ChamadoListComponent implements OnInit {
       this.ELEMENT_DATA = resp;
       this.dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     });
   }
 
