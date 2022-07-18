@@ -93,7 +93,7 @@ export class ChamadoListComponent implements OnInit, AfterViewInit {
       data: {
         id: chamado.id,
         dataAbertura: chamado.dataAbertura,
-        dataFechamento: chamado.dataFechamento,
+        dataConclusao: chamado.dataConclusao,
         prioridade: this.retornaPrioridade(chamado.prioridade),
         status: this.retornaStatus(chamado.status),
         titulo: chamado.titulo,
