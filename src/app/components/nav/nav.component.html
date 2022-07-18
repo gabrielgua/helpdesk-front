@@ -18,10 +18,21 @@
                 <i class="material-icons">description</i>
                 Chamados
             </a>
-            <a mat-list-item href="https://github.com/gabrielgua/helpdesk-front" target="_blank">
+            <a mat-list-item (click)="mostrarMenuGit = !mostrarMenuGit">
                 <i class="material-icons">code</i>
                 GitHub
             </a>
+            <div *ngIf="mostrarMenuGit" class="menuGit">
+                <a mat-list-item href="https://github.com/gabrielgua/helpdesk-front" target="_blank">
+                    <i class="material-icons">web</i>
+                    Front-End
+                </a>
+                <a mat-list-item href="https://github.com/gabrielgua/helpdesk-back" target="_blank">
+                    <i class="material-icons">terminal</i>
+                    Back-End
+                </a>
+            </div>
+            
             <a mat-list-item (click)="logout()">
                 <i class="material-icons">logout</i>
                 Sair

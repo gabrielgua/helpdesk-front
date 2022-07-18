@@ -23,3 +23,8 @@
     color: white;
     background-color: #2196f3;
 }
+
+.menuGit {
+    margin-left: 1.75rem;
+    border-left: 1px solid #2196f3;
+}
